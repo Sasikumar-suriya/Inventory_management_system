@@ -20,9 +20,9 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/create" element={<Signup />} />
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/forgot-password" element={<ForgotPassword/>}/>
+          <Route path="/forgot-password" element={<ForgotPassword />}/>
           <Route path="/reset-password" element={<ResetPassword/>}/>
-          <Route path="/category/create" element={<Category/>}/>
+          <Route path="/category/create" element={<Category />}/>
           <Route path="/inventory" element={<ProtectedRoute><Inventory /></ProtectedRoute>} />
         </Routes>
       </Router>

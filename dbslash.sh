@@ -1,0 +1,21 @@
+use inventory_management;
+CREATE TABLE Users (
+   `id` CHAR(36) NOT NULL DEFAULT (UUID()),
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    role VARCHAR(50) NOT NULL,
+    password VARCHAR(255) NULL,
+    `profilePicture` VARCHAR(500) NULL,
+    `createdAt` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `updatedAt` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+use inventory_management;
+CREATE TABLE Category (
+   `id` CHAR(36) NOT NULL DEFAULT (UUID()),
+    `categoryName` VARCHAR(255) NOT NULL,
+    description VARCHAR(255),
+    `createdBy` char(36) REFERENCES users(id) ON DELETE SET NULL,
+    `createdAt` TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    `updatedAt` TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL
+);

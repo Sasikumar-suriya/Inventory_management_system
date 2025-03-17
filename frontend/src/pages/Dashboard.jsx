@@ -171,6 +171,7 @@ import {
   Legend,
 } from "chart.js";
 
+
 // Register required Chart.js components
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
@@ -204,12 +205,12 @@ const Dashboard = () => {
   const [vendors, setVendors] = useState([]);
   const [suppliers, setSuppliers] = useState([]);
 const [customers, setCustomers] = useState([]);
-const [categories, setCategories] = useState([]);
+const [category, setCategory] = useState([]);
 
 const fetchCategories = async () => {
   try {
     const { data } = await axios.get("http://localhost:8000/category/create");
-    setCategories(data);
+    setCategory(data);
   } catch (error) {
     console.error("Error fetching categories:", error);
   }
@@ -507,7 +508,7 @@ useEffect(() => {
         </tr>
       </thead>
       <tbody>
-        {categories.map((category) => (
+        {category.map((category) => (
           <tr key={category._id} className="text-center">
             <td className="border p-2">{category.categoryName}</td>
             <td className="border p-2">{category.description}</td>
